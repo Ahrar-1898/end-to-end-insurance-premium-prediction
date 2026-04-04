@@ -21,7 +21,7 @@ End-to-end Machine Learning project to predict insurance premiums using Random F
 pip install -r requirements.txt
 uvicorn app:app --reload
 
-** ## Run with Docker
+## Run with Docker
 ```bash
 docker build -t ahrar123/insurance-premium-api:latest .
-docker run -p 8000:8000 ahrar123/insurance-premium-api:latest **
+docker run -p 8000:8000 ahrar123/insurance-premium-api:latest 
