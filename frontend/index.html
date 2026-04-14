@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PremiumPredict AI | Instant Insurance Quotes</title>
+    <meta name="description"
+        content="Get an instant, AI-driven insurance premium prediction based on your lifestyle, health, and demographics.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="background-orb orb-1"></div>
+    <div class="background-orb orb-2"></div>
+    <div class="background-orb orb-3"></div>
+
+    <main class="container">
+        <header class="header">
+            <h1>PremiumPredict <span class="accent-text">AI</span></h1>
+            <p>Calculate your insurance premium instantly with state-of-the-art predictive modeling.</p>
+        </header>
+
+        <section class="glass-card form-container">
+            <form id="prediction-form" class="fade-in">
+
+                <!-- Row 1 -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="1" max="119" placeholder="e.g. 35" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" step="0.1" id="weight" name="weight" min="1" placeholder="e.g. 70.5"
+                            required>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="height">Height (m)</label>
+                        <input type="number" step="0.01" id="height" name="height" min="0.1" max="2.49"
+                            placeholder="e.g. 1.75" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="income_lpa">Income (LPA)</label>
+                        <input type="number" step="0.1" id="income_lpa" name="income_lpa" min="0.1"
+                            placeholder="e.g. 12.5" required>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="e.g. Mumbai" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="occupation">Occupation</label>
+                        <select id="occupation" name="occupation" required>
+                            <option value="" disabled selected>Select occupation</option>
+                            <option value="private_job">Private Job</option>
+                            <option value="government_job">Government Job</option>
+                            <option value="business_owner">Business Owner</option>
+                            <option value="freelancer">Freelancer</option>
+                            <option value="student">Student</option>
+                            <option value="retired">Retired</option>
+                            <option value="unemployed">Unemployed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="form-row single-col">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="smoker" name="smoker">
+                        <span class="checkmark"></span>
+                        I am a smoker
+                    </label>
+                </div>
+
+                <div class="action-container">
+                    <button type="submit" id="submit-btn" class="btn-primary">
+                        <span class="btn-text">Predict Premium</span>
+                        <div class="loader hidden"></div>
+                    </button>
+                </div>
+            </form>
+
+            <div id="result-container" class="result-container hidden scale-in">
+                <h2>Prediction Result</h2>
+                <pre id="result-json" class="json-box"></pre>
+                <button type="button" id="reset-btn" class="btn-secondary">Recalculate</button>
+            </div>
+
+            <div id="error-container" class="error-container hidden slide-down">
+                <p id="error-message">Oops! Something went wrong.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

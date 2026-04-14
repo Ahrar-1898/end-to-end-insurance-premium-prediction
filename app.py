@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from schema.user_input import UserInput
 from model.predict import predict_output, model, MODEL_VERSION
 from schema.prediction_response import PredictionResponse
 app = FastAPI()
 
 # human readable        
-@app.get('/')
+@app.get('/api')
 def home():
     return {'message': 'Insurance premium prediction API'}
 
@@ -42,4 +43,5 @@ def predict_premium(data: UserInput):
 
         return JSONResponse(status_code = 500, content = str(e))
 
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
